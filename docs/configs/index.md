@@ -453,6 +453,81 @@ export default [
 }
 ```
 
+## no-relative-indexing-method
+
+disallow proposal [An .at() method on all the built-in indexables](https://github.com/tc39/proposal-relative-indexing-method)
+
+### [Config (Flat Config)]
+
+eslint.config.js:
+
+```js
+import pluginESx from "eslint-plugin-es-x"
+export default [
+    pluginESx.configs['flat/no-relative-indexing-method']
+]
+```
+
+### [Legacy Config]
+
+.eslintrc.*:
+
+```json
+{
+    "extends": ["plugin:es-x/no-relative-indexing-method"],
+}
+```
+
+## no-change-array-by-copy
+
+disallow proposal [Change Array by Copy](https://github.com/tc39/proposal-change-array-by-copy)
+
+### [Config (Flat Config)]
+
+eslint.config.js:
+
+```js
+import pluginESx from "eslint-plugin-es-x"
+export default [
+    pluginESx.configs['flat/no-change-array-by-copy']
+]
+```
+
+### [Legacy Config]
+
+.eslintrc.*:
+
+```json
+{
+    "extends": ["plugin:es-x/no-change-array-by-copy"],
+}
+```
+
+## no-intl-numberformat-v3
+
+disallow proposal [Intl.NumberFormat V3](https://github.com/tc39/proposal-intl-numberformat-v3)
+
+### [Config (Flat Config)]
+
+eslint.config.js:
+
+```js
+import pluginESx from "eslint-plugin-es-x"
+export default [
+    pluginESx.configs['flat/no-intl-numberformat-v3']
+]
+```
+
+### [Legacy Config]
+
+.eslintrc.*:
+
+```json
+{
+    "extends": ["plugin:es-x/no-intl-numberformat-v3"],
+}
+```
+
 ## no-array-grouping
 
 disallow proposal [Array Grouping](https://github.com/tc39/proposal-array-grouping)
