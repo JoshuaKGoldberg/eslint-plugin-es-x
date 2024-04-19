@@ -453,6 +453,31 @@ export default [
 }
 ```
 
+## no-is-usv-string
+
+disallow proposal [Well-Formed Unicode Strings](https://github.com/tc39/proposal-is-usv-string)
+
+### [Config (Flat Config)]
+
+eslint.config.js:
+
+```js
+import pluginESx from "eslint-plugin-es-x"
+export default [
+    pluginESx.configs['flat/no-is-usv-string']
+]
+```
+
+### [Legacy Config]
+
+.eslintrc.*:
+
+```json
+{
+    "extends": ["plugin:es-x/no-is-usv-string"],
+}
+```
+
 ## restrict-to-es2022
 
 disallow new stuff that ES2023 doesn't include
