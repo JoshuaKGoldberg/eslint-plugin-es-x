@@ -453,6 +453,31 @@ export default [
 }
 ```
 
+## no-array-grouping
+
+disallow proposal [Array Grouping](https://github.com/tc39/proposal-array-grouping)
+
+### [Config (Flat Config)]
+
+eslint.config.js:
+
+```js
+import pluginESx from "eslint-plugin-es-x"
+export default [
+    pluginESx.configs['flat/no-array-grouping']
+]
+```
+
+### [Legacy Config]
+
+.eslintrc.*:
+
+```json
+{
+    "extends": ["plugin:es-x/no-array-grouping"],
+}
+```
+
 ## no-is-usv-string
 
 disallow proposal [Well-Formed Unicode Strings](https://github.com/tc39/proposal-is-usv-string)
