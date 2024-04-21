@@ -6,6 +6,7 @@ description: "disallow the `String.prototype.at()` methods"
 # es-x/no-string-prototype-at
 > disallow the `String.prototype.at()` methods
 
+- ❗ <badge text="This rule has not been released yet." vertical="middle" type="error"> ***This rule has not been released yet.*** </badge>
 - ✅ The following configurations enable this rule: [no-new-in-es2022], [no-relative-indexing-method], [restrict-to-es3], [restrict-to-es5], [restrict-to-es2015], [restrict-to-es2016], [restrict-to-es2017], [restrict-to-es2018], [restrict-to-es2019], [restrict-to-es2020], and [restrict-to-es2021]
 
 This rule reports ES2022 [`String.prototype.at` methods](https://github.com/tc39/proposal-relative-indexing-method) as errors.
@@ -38,10 +39,6 @@ rules:
 
 Configure the aggressive mode for only this rule.
 This is prior to the `settings['es-x'].aggressive` setting.
-
-## 🚀 Version
-
-This rule was introduced in v5.0.0.
 
 ## 📚 References
 

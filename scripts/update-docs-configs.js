@@ -30,17 +30,59 @@ for (const { configName, rules, ...config } of Object.values(categories)) {
     }
 }
 
-for (const {
+Object.values(configs)
+    .filter(
+        (cat, i, list) =>
+            cat.specKind !== "proposal" &&
+            list.slice(0, i).every((c) => c.configName !== cat.configName),
+    )
+    .forEach(processCategoryConfig)
+
+for (const { title, aboveConfigName, specKind } of Object.values(configs)) {
+    if (!aboveConfigName) {
+        continue
+    }
+
+    contents.push(`## ${aboveConfigName}`)
+    contents.push("")
+    contents.push(
+        specKind === "ecma262"
+            ? `disallow new stuff that ${title} doesn't include`
+            : `disallow new stuff that ${title} (ECMA-402) doesn't include`,
+    )
+    contents.push("")
+    appendConfig(aboveConfigName)
+}
+
+Object.values(configs)
+    .filter((cat) => cat.specKind === "proposal")
+    .sort((a, b) =>
+        a.configName > b.configName ? 1 : a.configName < b.configName ? -1 : 0,
+    )
+    .forEach(processCategoryConfig)
+
+contents.push(
+    "[Config (Flat Config)]: https://eslint.org/docs/latest/use/configure/configuration-files-new",
+)
+contents.push(
+    "[Legacy Config]: https://eslint.org/docs/latest/use/configure/configuration-files",
+)
+
+fs.writeFileSync(MD_PATH, `${contents.join("\n").trim()}\n`)
+
+/**
+ * Process for normal category config
+ * @param {import("./rules").Category} params
+ */
+function processCategoryConfig({
     title,
     rules,
     configName,
     specKind,
     experimental,
-} of Object.values(configs).filter((cat, i, list) =>
-    list.slice(0, i).every((c) => c.configName !== cat.configName),
-)) {
+}) {
     if (!configName || !rules.length) {
-        continue
+        return
     }
     contents.push(`## ${configName}`)
     contents.push("")
@@ -68,30 +110,6 @@ for (const {
     contents.push("")
     appendConfig(configName)
 }
-for (const { title, aboveConfigName, specKind } of Object.values(configs)) {
-    if (!aboveConfigName) {
-        continue
-    }
-
-    contents.push(`## ${aboveConfigName}`)
-    contents.push("")
-    contents.push(
-        specKind === "ecma262"
-            ? `disallow new stuff that ${title} doesn't include`
-            : `disallow new stuff that ${title} (ECMA-402) doesn't include`,
-    )
-    contents.push("")
-    appendConfig(aboveConfigName)
-}
-
-contents.push(
-    "[Config (Flat Config)]: https://eslint.org/docs/latest/use/configure/configuration-files-new",
-)
-contents.push(
-    "[Legacy Config]: https://eslint.org/docs/latest/use/configure/configuration-files",
-)
-
-fs.writeFileSync(MD_PATH, `${contents.join("\n").trim()}\n`)
 
 function appendConfig(configName) {
     contents.push("### [Config (Flat Config)]")

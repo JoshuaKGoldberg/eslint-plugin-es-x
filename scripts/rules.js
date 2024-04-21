@@ -172,6 +172,12 @@ const rules = []
         for (const proposal of proposalIds) {
             const id = `no-${proposal}`
 
+            if (!proposals[proposal]) {
+                throw new Error(
+                    `Missing define proposal: ${proposal}\nWe need to add it to scripts/proposals.js.`,
+                )
+            }
+
             ;(categories[id] = categories[id] || {
                 id,
                 title: `[${proposals[proposal].title}](${proposals[proposal].link})`,
