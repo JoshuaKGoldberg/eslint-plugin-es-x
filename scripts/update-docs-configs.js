@@ -93,7 +93,7 @@ function processCategoryConfig({
                 ? "disallow the new stuff to be planned for the next yearly ECMAScript snapshot.\\"
                 : specKind === "ecma402"
                   ? "disallow the new stuff to be planned for the next yearly ECMAScript Intl API (ECMA-402) snapshot.\\"
-                  : "",
+                  : `disallow proposal ${title}`,
         )
         contents.push(
             "⚠️ This config will be changed in the minor versions of this plugin.",
@@ -107,6 +107,19 @@ function processCategoryConfig({
                   : `disallow proposal ${title}`,
         )
     }
+
+    if (specKind === "proposal") {
+        contents.push("")
+        contents.push(
+            `This configs includes rules for ${formatList(
+                rules.map((rule) => {
+                    const ruleId = rule.ruleId
+                    return `[es-x/${ruleId}](../rules/${ruleId}.md)`
+                }),
+            )}.`,
+        )
+    }
+
     contents.push("")
     appendConfig(configName)
 }
@@ -133,4 +146,24 @@ export default [
 }`)
     contents.push("```")
     contents.push("")
+}
+
+/**
+ * Format a list.
+ * @param {string[]} xs The list value to format.
+ */
+function formatList(xs) {
+    switch (xs.length) {
+        case 0:
+            return ""
+        case 1:
+            return xs[0]
+        case 2:
+            return `${xs[0]} and ${xs[1]}`
+        default: {
+            const ys = xs.slice(0, xs.length - 1)
+            const last = xs[xs.length - 1]
+            return `${ys.join(", ")}, and ${last}`
+        }
+    }
 }

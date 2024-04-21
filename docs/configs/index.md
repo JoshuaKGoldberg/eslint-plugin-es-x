@@ -932,6 +932,8 @@ export default [
 
 disallow proposal [Array Grouping](https://github.com/tc39/proposal-array-grouping)
 
+This configs includes rules for [es-x/no-map-groupby](../rules/no-map-groupby.md) and [es-x/no-object-groupby](../rules/no-object-groupby.md).
+
 ### [Config (Flat Config)]
 
 eslint.config.js:
@@ -956,6 +958,8 @@ export default [
 ## no-change-array-by-copy
 
 disallow proposal [Change Array by Copy](https://github.com/tc39/proposal-change-array-by-copy)
+
+This configs includes rules for [es-x/no-array-prototype-toreversed](../rules/no-array-prototype-toreversed.md), [es-x/no-array-prototype-tosorted](../rules/no-array-prototype-tosorted.md), [es-x/no-array-prototype-tospliced](../rules/no-array-prototype-tospliced.md), and [es-x/no-array-prototype-with](../rules/no-array-prototype-with.md).
 
 ### [Config (Flat Config)]
 
@@ -982,6 +986,8 @@ export default [
 
 disallow proposal [Class Fields](https://github.com/tc39/proposal-class-fields)
 
+This configs includes rules for [es-x/no-class-instance-fields](../rules/no-class-instance-fields.md), [es-x/no-class-private-fields](../rules/no-class-private-fields.md), [es-x/no-class-private-methods](../rules/no-class-private-methods.md), and [es-x/no-class-static-fields](../rules/no-class-static-fields.md).
+
 ### [Config (Flat Config)]
 
 eslint.config.js:
@@ -1006,6 +1012,8 @@ export default [
 ## no-intl-numberformat-v3
 
 disallow proposal [Intl.NumberFormat V3](https://github.com/tc39/proposal-intl-numberformat-v3)
+
+This configs includes rules for [es-x/no-intl-numberformat-prototype-formatrange](../rules/no-intl-numberformat-prototype-formatrange.md), [es-x/no-intl-numberformat-prototype-formatrangetoparts](../rules/no-intl-numberformat-prototype-formatrangetoparts.md), and [es-x/no-intl-pluralrules-prototype-selectrange](../rules/no-intl-pluralrules-prototype-selectrange.md).
 
 ### [Config (Flat Config)]
 
@@ -1032,6 +1040,8 @@ export default [
 
 disallow proposal [Well-Formed Unicode Strings](https://github.com/tc39/proposal-is-usv-string)
 
+This configs includes rules for [es-x/no-string-prototype-iswellformed](../rules/no-string-prototype-iswellformed.md) and [es-x/no-string-prototype-towellformed](../rules/no-string-prototype-towellformed.md).
+
 ### [Config (Flat Config)]
 
 eslint.config.js:
@@ -1056,6 +1066,8 @@ export default [
 ## no-relative-indexing-method
 
 disallow proposal [An .at() method on all the built-in indexables](https://github.com/tc39/proposal-relative-indexing-method)
+
+This configs includes rules for [es-x/no-array-prototype-at](../rules/no-array-prototype-at.md) and [es-x/no-string-prototype-at](../rules/no-string-prototype-at.md).
 
 ### [Config (Flat Config)]
 
