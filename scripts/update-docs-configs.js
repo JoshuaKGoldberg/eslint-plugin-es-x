@@ -56,8 +56,14 @@ for (const { title, aboveConfigName, specKind } of Object.values(configs)) {
 
 Object.values(configs)
     .filter((cat) => cat.specKind === "proposal")
-    .sort((a, b) =>
-        a.configName > b.configName ? 1 : a.configName < b.configName ? -1 : 0,
+    .sort(
+        (a, b) =>
+            b.year - a.year ||
+            (a.configName > b.configName
+                ? 1
+                : a.configName < b.configName
+                  ? -1
+                  : 0),
     )
     .forEach(processCategoryConfig)
 
@@ -93,7 +99,7 @@ function processCategoryConfig({
                 ? "disallow the new stuff to be planned for the next yearly ECMAScript snapshot.\\"
                 : specKind === "ecma402"
                   ? "disallow the new stuff to be planned for the next yearly ECMAScript Intl API (ECMA-402) snapshot.\\"
-                  : `disallow proposal ${title}`,
+                  : `disallow proposal ${title}\\`,
         )
         contents.push(
             "⚠️ This config will be changed in the minor versions of this plugin.",
